@@ -130,7 +130,10 @@ void mouseClicked() {
           mouseY <= (i*(height-menuBarHeight)/10+3+menuBarHeight) + ((height-menuBarHeight)/10-6)) {
           if (squares[i*10+j] != colors.length-1) {
             int countedDeletedSquares = delSquares(i*10+j, true);
-            game.score += pow(countedDeletedSquares - 1, 2);
+            if(countedDeletedSquares>0){
+              game.score += pow(countedDeletedSquares - 1, 2);
+            }
+            
             for (int countDel=0; countDel<countedDeletedSquares+1; countDel++) {
               moveSquares();
             }
